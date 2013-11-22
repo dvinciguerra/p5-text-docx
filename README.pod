@@ -1,0 +1,47 @@
+
+=pod
+
+=head1 Text::Docx - Office Docx as Template
+
+This module is a tool that provide a simple way to transform a docx
+office file in a template using the tradictional [% tags %] for 
+replace stash variables.
+
+
+=head2 Synopsis
+
+    use Text::Docx;
+
+    # getting a new instance
+    my $template = Text::Docx->new( '/path/to/template.docx' );
+
+    # basic stash
+    my $stash = {
+        foo => 'foo value', bar => 'bar value',
+    };
+
+    # process template and save docx file
+    $template->process( $stash )
+        ->save_to( '/path/to/new/file.docx' );
+
+and in docx file we have something like:
+
+    You is the [% foo %] of my [% bar %]!!!
+
+
+=head2 Author
+
+Daniel Vinciguerra <daniel.vinciguerra@bivee.com.br>
+
+2013 (c) Bivee
+
+L<http://bivee.com.br>
+
+
+=head2 Copyrights and Licenses
+
+This software is copyright (c) 2013 by Bivee.
+
+This is a free software; you can redistribute it and/or modify it under the same terms of Perl 5 programming languagem system itself.
+
+=cut
